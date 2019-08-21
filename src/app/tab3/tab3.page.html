@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title class="ion-text-center">
+      Contacts table view
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <ion-item color="dark">
+    <ion-label>Contact:</ion-label>
+    <ion-input placeholder="Add contact name..." [(ngModel)]="Object.name" ></ion-input>
+  </ion-item>
+  <div class="ion-text-center">
+      <ion-button expand="block" color="success" type="submit" (click)="add()">Add</ion-button>
+  </div>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col *ngFor="let article of contact" size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle class="txt-subtitle">Name: {{ article.name }}</ion-card-subtitle>
+              <ion-card-subtitle class="txt-subtitle">Created at: {{ article.created_at }} </ion-card-subtitle>
+              <ion-button expand="full" (click)="Editar(article.id)">Edit</ion-button>
+              <ion-button expand="full" color="danger" (click)="delete(article.id)">Delete</ion-button>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>
